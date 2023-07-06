@@ -1,6 +1,8 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,15 +10,53 @@ namespace LinkedList_Prog
 {
     public class ListData
     {
-        public void Add()
+        public Node head;
+        public void Add(int data)
         {
-            LinkedList<int> list = new LinkedList<int>();
-            list.AddFirst(56);
-            list.AddFirst(30);
-            list.AddFirst(70);
-            foreach(int val in list)
+           Node node = new Node(data);
+            if(head==null)
             {
-                Console.WriteLine(val);
+                head = node;
+            }
+            else
+            {
+                Node temp = head;
+                while(temp.next!=null) 
+                {
+                    temp = temp.next;
+
+                }
+                temp.next = node;
+            }
+            Console.WriteLine(data);
+        }
+        public void Reverse(int data)
+        {
+            Node node = new Node(data);
+            if (head == null)
+            {
+                head = node;
+            }
+            else
+
+            {
+                Node temp = head;
+                head = node;
+                head.next = temp;
+
+            }
+        }
+        public void Display()
+        {
+            Node temp= head;
+            if (temp == null)
+            {
+                Console.WriteLine("List is Empty");
+            }
+            while(temp != null) 
+            {
+                Console.WriteLine(temp.data);
+                temp = temp.next;
             }
         }
     }
