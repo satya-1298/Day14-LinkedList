@@ -17,7 +17,7 @@ namespace LinkedList_Prog
             {
                 Console.WriteLine("*****************************");
                 Console.WriteLine("1-Insertion");
-               // Console.WriteLine("2-In Reverse Order");
+                Console.WriteLine("2-Adding at Particular Position");
                 Console.WriteLine("Choose the above options ");
                 int option = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("*****************************");
@@ -25,8 +25,14 @@ namespace LinkedList_Prog
                 {
                     case 1:
                         listData.Add(56);
-                        listData.Add(30);
                         listData.Add(70);
+                       // listData.Add(30);
+                        listData.Display();
+                        Console.WriteLine("*****************************");
+                        break;
+                    case 2:
+                      
+                        listData.InsertAtPosition(2, 30);
                         listData.Display();
                         Console.WriteLine("*****************************");
                         break;

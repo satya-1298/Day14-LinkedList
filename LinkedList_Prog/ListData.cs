@@ -29,7 +29,35 @@ namespace LinkedList_Prog
                 temp.next = node;
             }
         }
-       
+        public void InsertAtPosition(int position, int data)
+        {
+            int count = 1;
+            Node node = new Node(data);
+            if (head == null)
+            {
+                head = node;
+            }
+          
+
+            if (position == 1)
+            {
+                node.next = head;
+                head = node;
+                return;
+            }
+            Node prev = null;
+            Node current = head;
+            //count++;
+            while (current != null && count <= position)
+            {
+                prev = current;
+                current = current.next;
+                count++;
+            }
+            node.next = prev.next;
+            prev.next = node;
+        }
+
         public void Display()
         {
             Node temp= head;
