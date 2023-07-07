@@ -32,9 +32,11 @@ namespace LinkedList_Prog
                         break;
                     case 2:
                       
-                        listData.Remove_Last();
+                        listData.Search(56);
                         listData.Display();
                         Console.WriteLine("*****************************");
+                        break;
+                    default: Console.WriteLine("Enter an Invalid Option");
                         break;
                    
                 }

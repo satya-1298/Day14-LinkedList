@@ -29,23 +29,40 @@ namespace LinkedList_Prog
                 temp.next = node;
             }
         }
-        public void Remove_Last()
+        public int Search(int value)
         {
+           // int count = 0;
+            int found = 0;
+            Node temp = head;   
             if(head==null)
             {
                 Console.WriteLine("List is Empty");
                 
             }
+            int count = 0;
+            while (temp != null)
+            {
+                count++;
+                if(temp.data==value)
+                {
+                    Console.WriteLine("The Element is in Position "+count);
+                    found++;
+                   
+                }
+                temp = temp.next;
+                
+            }
+            if(found==1)
+            {
+                Console.WriteLine("Found the element {0}", value);
+            }
             else
             {
-                Node temp = head;
-                while (temp.next.next != null)
-                {
-                    temp = temp.next;
-                }
-                temp.next = null;
-
+                Console.WriteLine("Element not found");
             }
+            return count;
+            
+            
         }
 
         public void Display()
