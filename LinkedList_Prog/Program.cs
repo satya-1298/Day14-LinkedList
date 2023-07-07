@@ -32,7 +32,7 @@ namespace LinkedList_Prog
                         break;
                     case 2:
                       
-                        listData.Search(56);
+                        listData.InsertAtPosition(2,40);
                         listData.Display();
                         Console.WriteLine("*****************************");
                         break;

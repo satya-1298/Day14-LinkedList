@@ -29,42 +29,35 @@ namespace LinkedList_Prog
                 temp.next = node;
             }
         }
-        public int Search(int value)
+        public void InsertAtPosition(int position, int data)
         {
-           // int count = 0;
-            int found = 0;
-            Node temp = head;   
-            if(head==null)
-            {
-                Console.WriteLine("List is Empty");
-                
-            }
             int count = 0;
-            while (temp != null)
+            Node node = new Node(data);
+            count++;
+            if (head == null)
             {
-                count++;
-                if(temp.data==value)
-                {
-                    Console.WriteLine("The Element is in Position "+count);
-                    found++;
-                   
-                }
-                temp = temp.next;
-                
+                head = node;
             }
-            if(found==1)
-            {
-                Console.WriteLine("Found the element {0}", value);
-            }
-            else
-            {
-                Console.WriteLine("Element not found");
-            }
-            return count;
-            
-            
-        }
 
+
+            if (position == 0)
+            {
+                node.next = head;
+                head = node;
+                return;
+            }
+            Node prev = null;
+            Node current = head;
+           
+            while (current != null && count <= position)
+            {
+                prev = current;
+                current = current.next;
+                count++;
+            }
+            node.next = prev.next;
+            prev.next = node;
+        }
         public void Display()
         {
             Node temp= head;
