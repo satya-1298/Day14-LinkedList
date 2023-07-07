@@ -17,7 +17,7 @@ namespace LinkedList_Prog
             {
                 Console.WriteLine("*****************************");
                 Console.WriteLine("1-Insertion");
-                Console.WriteLine("2-Removing First Element");
+                Console.WriteLine("2-Removing Last Element");
                 Console.WriteLine("Choose the above options ");
                 int option = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("*****************************");
@@ -32,7 +32,7 @@ namespace LinkedList_Prog
                         break;
                     case 2:
                       
-                        listData.FirstRemove();
+                        listData.Remove_Last();
                         listData.Display();
                         Console.WriteLine("*****************************");
                         break;

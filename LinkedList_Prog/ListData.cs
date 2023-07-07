@@ -29,17 +29,22 @@ namespace LinkedList_Prog
                 temp.next = node;
             }
         }
-        public void FirstRemove()
+        public void Remove_Last()
         {
             if(head==null)
             {
                 Console.WriteLine("List is Empty");
+                
             }
             else
             {
                 Node temp = head;
-                head=temp.next;
-                
+                while (temp.next.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = null;
+
             }
         }
 
