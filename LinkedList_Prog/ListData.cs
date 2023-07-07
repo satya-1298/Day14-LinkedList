@@ -29,33 +29,18 @@ namespace LinkedList_Prog
                 temp.next = node;
             }
         }
-        public void InsertAtPosition(int position, int data)
+        public void FirstRemove()
         {
-            int count = 1;
-            Node node = new Node(data);
-            if (head == null)
+            if(head==null)
             {
-                head = node;
+                Console.WriteLine("List is Empty");
             }
-          
-
-            if (position == 1)
+            else
             {
-                node.next = head;
-                head = node;
-                return;
+                Node temp = head;
+                head=temp.next;
+                
             }
-            Node prev = null;
-            Node current = head;
-            //count++;
-            while (current != null && count <= position)
-            {
-                prev = current;
-                current = current.next;
-                count++;
-            }
-            node.next = prev.next;
-            prev.next = node;
         }
 
         public void Display()
