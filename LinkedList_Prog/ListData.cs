@@ -30,47 +30,34 @@ namespace LinkedList_Prog
                 temp.next = node;
             }
         }
-       public void Remove(int value)
+       public void Sort_List()
        {
-            int count = 0;
-            int found = 0;
-            Node prev=null;
             Node temp = head;
-
-            if (head == null)
+            Node ele = null;
+            int node = 0;
+            if(temp==null)
             {
-                Console.WriteLine("Empty");
-                
+                Console.WriteLine("List is Empty");
             }
-            if (temp.data.Equals(value))
+            while (temp != null)
             {
-                head = temp.next;
-                temp = null;
-                return;
-            }
-            else
-            {
-                while (temp != null)
+                ele = temp.next;
+                while (ele != null)
                 {
-
-                    if (temp.data == value)
+                    if (temp.data.CompareTo( ele.data)>0)
                     {
-                        break;
+                        node = ele.data;
+                        ele.data = temp.data;
+                        temp.data = node;
                     }
-                    prev = temp;
-
-                    temp = temp.next;
-
+                    ele = ele.next;
                 }
-                if (temp == null)
-                {
-                    return;
-                }
-                prev.next = temp.next;
-
-
+                temp = temp.next;
             }
+            Console.WriteLine("Sorted list is");
        }
+
+    
        public void Display()
        {
             Node temp= head;
