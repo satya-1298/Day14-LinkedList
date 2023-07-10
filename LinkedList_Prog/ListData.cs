@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LinkedList_Prog
@@ -29,37 +30,49 @@ namespace LinkedList_Prog
                 temp.next = node;
             }
         }
-        public void InsertAtPosition(int position, int data)
-        {
+       public void Remove(int value)
+       {
             int count = 0;
-            Node node = new Node(data);
-            count++;
+            int found = 0;
+            Node prev=null;
+            Node temp = head;
+
             if (head == null)
             {
-                head = node;
+                Console.WriteLine("Empty");
+                
             }
-
-
-            if (position == 0)
+            if (temp.data.Equals(value))
             {
-                node.next = head;
-                head = node;
+                head = temp.next;
+                temp = null;
                 return;
             }
-            Node prev = null;
-            Node current = head;
-           
-            while (current != null && count <= position)
+            else
             {
-                prev = current;
-                current = current.next;
-                count++;
+                while (temp != null)
+                {
+
+                    if (temp.data == value)
+                    {
+                        break;
+                    }
+                    prev = temp;
+
+                    temp = temp.next;
+
+                }
+                if (temp == null)
+                {
+                    return;
+                }
+                prev.next = temp.next;
+
+
             }
-            node.next = prev.next;
-            prev.next = node;
-        }
-        public void Display()
-        {
+       }
+       public void Display()
+       {
             Node temp= head;
             if (temp == null)
             {
@@ -70,6 +83,6 @@ namespace LinkedList_Prog
                 Console.WriteLine(temp.data);
                 temp = temp.next;
             }
-        }
+       }
     }
 }
